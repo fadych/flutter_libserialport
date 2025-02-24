@@ -1,18 +1,17 @@
 group 'org.sigrok.flutter_libserialport'
 version '0.5.0-SNAPSHOT'
 
-buildscript {
-    ext.kotlin_version = '2.0.0'
-    repositories {
-        google()
-        jcenter()
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.2.2'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
+ buildscript {
+      ext.kotlin_version = '1.9.20'
+      repositories {
+          google()
+          mavenCentral()
+      }
+      dependencies {
+          classpath 'com.android.tools.build:gradle:8.1.0'
+          classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+      }
+  }
 
 rootProject.allprojects {
     repositories {
@@ -26,15 +25,16 @@ apply plugin: 'kotlin-android'
 
 android {
     namespace 'org.sigrok.flutter_libserialport'
-    compileSdk 34
+    compileSdkVersion 34
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
-    defaultConfig {
-        minSdkVersion 21
-        namespace 'org.sigrok.flutter_libserialport'
-    }
+      defaultConfig {
+          minSdkVersion 21
+          targetSdkVersion 34
+         
+      }
     lintOptions {
         disable 'InvalidPackage'
     }
@@ -50,6 +50,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    namespace 'org.sigrok.flutter_libserialport'
     experimentalProperties["android.ndk.suppressMinSdkVersionError"] = 21
 }
 
