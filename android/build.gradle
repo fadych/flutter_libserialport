@@ -52,8 +52,10 @@ android {
     }
     namespace 'org.sigrok.flutter_libserialport'
     experimentalProperties["android.ndk.suppressMinSdkVersionError"] = 21
+    ndkVersion "21.4.7075529"
 }
 
 dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.20"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
